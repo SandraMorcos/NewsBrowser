@@ -17,13 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let rootViewController: UIViewController?
-        if Constants.favoriteCountry != nil {
-            let storyboard = UIStoryboard(name: Storyboards.main.rawValue, bundle: Bundle.main)
-            rootViewController = storyboard.instantiateInitialViewController()
-        } else {
-            let storyboard = UIStoryboard(name: Storyboards.onboarding.rawValue, bundle: Bundle.main)
+        var storyboard = UIStoryboard(name: Storyboards.onboarding.rawValue, bundle: Bundle.main)
+        if Constants.favoriteCountry == nil {
             let onboardingVC = storyboard.instantiateViewController(withIdentifier: ViewControllers.onboarding.rawValue)
             rootViewController = UINavigationController(rootViewController: onboardingVC)
+            
+        } else if Constants.favoriteSources == nil {
+            rootViewController = storyboard.instantiateViewController(withIdentifier: ViewControllers.sources.rawValue)
+        } else {
+            storyboard = UIStoryboard(name: Storyboards.main.rawValue, bundle: Bundle.main)
+            rootViewController = storyboard.instantiateInitialViewController()
         }
         window?.rootViewController = rootViewController
         return true

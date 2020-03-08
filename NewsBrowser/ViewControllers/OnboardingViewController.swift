@@ -31,6 +31,9 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func countrySelected(_ sender: UIButton) {
         UserDefaults.standard.favoriteCountry = repository.countryCodes[selectedCountry]
+        let storyboard = UIStoryboard(name: Storyboards.onboarding.rawValue, bundle: nil)
+        let sourcesViewController = storyboard.instantiateViewController(withIdentifier: ViewControllers.sources.rawValue)
+        navigationController?.pushViewController(sourcesViewController, animated: true)
     }
     
 
