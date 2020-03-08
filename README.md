@@ -10,18 +10,20 @@ Simple news app, featuring recent news articles from newsAPI.com
 - Bookmark articles to read later
 
 ## Design Choices
+
 - Using MVVM design pattern with added repositories to map models into view models
 - Using a static variable to access previously fetched sources to eliminate the need for other data requests.
 - Creating a request struct to handle different types of requests through an enum because all endpoints have things in common.
 - Creating one data model for both requests because the squeletons of both models are the same even though there are some slight differences.
 - Creating a constants file to make it easier to change data that reflects in several places across the app
 - Using helpers to maintain consistency
-
+- Fetching data incrementally when paging is allowed by the api to decrease loading time
 
 ## Future improvements
 
 - Reusing the tableView that displays the articles in Headlines and Favorites view controller by implementing either a common parent for both viewControllers, or for the tableview and using it inside each view controller.
 - Moving all strings to a strings file instead of hard-coding them.
+- Change UI to be more consistent with a specific theme
 
 #### Assets Credits
 All icons used in this project were downloaded from [icons8.com](http://icons8.com)
