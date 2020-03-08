@@ -17,7 +17,7 @@ class HeadlinesViewController: UIViewController {
     var pageNumber = 1
     var selectedFilters = [SourceViewModel]()
     let dataLoader = DataLoader()
-    
+    let articlesRepository = ArticlesRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +29,21 @@ class HeadlinesViewController: UIViewController {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource = ArticlesRepository.fetchedArticles
+        tableView.reloadData()
+    }
+    
     func fetchData(){
-        dataLoader.request(.headlines(pageNumber: pageNumber, pageSize: 3)) { [weak self](response, _) in
-            guard let self = self,
-                let articles = response?.articles else {
-                    return
-            }
-            var viewModels = [ArticleViewModel]()
-            for article in articles {
-                let viewModel = ArticleViewModel(model: article)
-                viewModels.append(viewModel)
-            }
-            self.fetchedArticles.append(contentsOf: viewModels)
-            self.dataSource = self.fetchedArticles
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        articlesRepository.loadArticles(from: dataLoader,
+                                        pageNumber: pageNumber,
+                                        pageSize: 3) { [weak self](error) in
+                                            guard let self = self, error == nil else { return}
+                                            self.dataSource = ArticlesRepository.fetchedArticles
+                                            DispatchQueue.main.async {
+                                                self.tableView.reloadData()
+                                            }
         }
     }
 

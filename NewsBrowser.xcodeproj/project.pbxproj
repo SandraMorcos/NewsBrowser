@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A558175124156D6E008B9F28 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558175024156D6E008B9F28 /* ArticlesRepository.swift */; };
 		A57C580F24153A16006D0F47 /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C580E24153A15006D0F47 /* HeadlinesViewController.swift */; };
 		A57C581224153A4F006D0F47 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C581124153A4F006D0F47 /* Response.swift */; };
 		A57C581424153A6C006D0F47 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C581324153A6C006D0F47 /* Article.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		1CF0F2F162926A1CAA3884ED /* Pods_NewsBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDD92AD385F11CF5E4D8C /* Pods-NewsBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsBrowser.release.xcconfig"; path = "Target Support Files/Pods-NewsBrowser/Pods-NewsBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		A558175024156D6E008B9F28 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
 		A57C580E24153A15006D0F47 /* HeadlinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
 		A57C581124153A4F006D0F47 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		A57C581324153A6C006D0F47 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				A57C583424154294006D0F47 /* SourcesRepository.swift */,
 				A57C5830241540D7006D0F47 /* CountriesRepository.swift */,
 				A57C581724153AE7006D0F47 /* DataLoader.swift */,
+				A558175024156D6E008B9F28 /* ArticlesRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				A57C584124154B0C006D0F47 /* FavoritesViewController.swift in Sources */,
 				A57C582824153C1F006D0F47 /* ArticlesRequest.swift in Sources */,
 				A57C581424153A6C006D0F47 /* Article.swift in Sources */,
+				A558175124156D6E008B9F28 /* ArticlesRepository.swift in Sources */,
 				A57C580F24153A16006D0F47 /* HeadlinesViewController.swift in Sources */,
 				A57C583F24154905006D0F47 /* UserDefaults+Keys.swift in Sources */,
 				A57C581824153AE7006D0F47 /* DataLoader.swift in Sources */,

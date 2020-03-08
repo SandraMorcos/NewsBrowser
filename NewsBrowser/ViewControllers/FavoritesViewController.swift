@@ -51,6 +51,9 @@ extension FavoritesViewController: UITableViewDataSource {
             }
             self?.dataSource = UserDefaults.standard.bookmarkedArticles ?? []
             self?.tableView.reloadData()
+            let articles = ArticlesRepository.fetchedArticles
+            guard let index = articles.firstIndex(where: {$0.title == viewModel.title}) else { return }
+            articles[index].isFavorite = !articles[index].isFavorite
         }
         return cell
     }
