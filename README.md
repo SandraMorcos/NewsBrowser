@@ -21,6 +21,7 @@ Simple news app, featuring recent news articles from newsAPI.com
 
 ## Future improvements
 
+- Fixing bug: changes to favorites in favorites tab do not reflect in headlines tab because they do not share a data source.
 - Reusing the tableView that displays the articles in Headlines and Favorites view controller by implementing either a common parent for both viewControllers, or for the tableview and using it inside each view controller.
 - Moving all strings to a strings file instead of hard-coding them.
 - Change UI to be more consistent with a specific theme
