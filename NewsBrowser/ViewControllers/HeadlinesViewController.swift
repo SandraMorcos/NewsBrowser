@@ -17,6 +17,7 @@ class HeadlinesViewController: UIViewController {
     var dataSource: [Article] = []
     var fetchedArticles: [Article] = []
     var pageNumber = 1
+    var selectedFilters = [SourceViewModel]()
     let dataLoader = DataLoader()
     
     
@@ -43,7 +44,13 @@ class HeadlinesViewController: UIViewController {
     }
 
     @IBAction func showFilters(_ sender: UIButton) {
-
+        let storyboard = UIStoryboard(name: Storyboards.main.rawValue, bundle: Bundle.main)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: ViewControllers.filters.rawValue) as? FiltersViewController else {
+            return
+        }
+        viewController.delegate = self
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true)
     }
 
 }
@@ -106,4 +113,14 @@ extension HeadlinesViewController: UISearchBarDelegate {
     }
 }
 
+extension HeadlinesViewController: FilteredSearchDelegate {
+    func addFilter(source: SourceViewModel) {
+        selectedFilters.append(source)
+    }
+    
+    func removeFilter(source: SourceViewModel) {
+        guard let index = selectedFilters.firstIndex(where: {$0.id == source.id}) else { return }
+        selectedFilters.remove(at: index)
+    }
+}
 

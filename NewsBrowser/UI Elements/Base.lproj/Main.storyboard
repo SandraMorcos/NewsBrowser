@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -112,6 +113,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nej-kB-Sht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1475" y="-830"/>
+        </scene>
+        <!--Filters View Controller-->
+        <scene sceneID="F2K-Mw-Wo0">
+            <objects>
+                <viewController storyboardIdentifier="FiltersViewController" id="3a9-0W-sep" customClass="FiltersViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4QS-Dp-L5b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nuE-uX-ACM">
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="671.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AIG-BG-aNw">
+                                    <size key="itemSize" width="180" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterCellID" id="NAY-cx-SvI" customClass="FilterCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xQZ-jt-ief">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDG-Gw-SVK">
+                                                    <rect key="frame" x="71.5" y="16" width="37.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gDG-Gw-SVK" firstAttribute="centerY" secondItem="xQZ-jt-ief" secondAttribute="centerY" id="Imt-J0-vE1"/>
+                                                <constraint firstItem="gDG-Gw-SVK" firstAttribute="centerX" secondItem="xQZ-jt-ief" secondAttribute="centerX" id="oTK-XP-fBc"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="50"/>
+                                        <connections>
+                                            <outlet property="sourceName" destination="gDG-Gw-SVK" id="arW-eY-ecD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="3a9-0W-sep" id="UTd-UB-Yzh"/>
+                                    <outlet property="delegate" destination="3a9-0W-sep" id="eXW-LM-FoT"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HA6-A6-LY0">
+                                <rect key="frame" x="20" y="798" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="T0z-tH-eDH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToSearch:" destination="3a9-0W-sep" eventType="touchUpInside" id="mXp-Gb-pPA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Filter search by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNn-dx-qmH">
+                                <rect key="frame" x="10" y="60" width="394" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tng-Lv-gIf" firstAttribute="trailing" secondItem="nuE-uX-ACM" secondAttribute="trailing" id="6K6-jr-fg8"/>
+                            <constraint firstItem="vNn-dx-qmH" firstAttribute="leading" secondItem="tng-Lv-gIf" secondAttribute="leading" constant="10" id="BEb-YK-Nbk"/>
+                            <constraint firstItem="nuE-uX-ACM" firstAttribute="leading" secondItem="tng-Lv-gIf" secondAttribute="leading" id="Ddi-Sd-Arx"/>
+                            <constraint firstItem="HA6-A6-LY0" firstAttribute="top" secondItem="nuE-uX-ACM" secondAttribute="bottom" constant="20" id="PuW-fZ-IRz"/>
+                            <constraint firstItem="nuE-uX-ACM" firstAttribute="top" secondItem="vNn-dx-qmH" secondAttribute="bottom" constant="20" id="cVJ-DW-Wa8"/>
+                            <constraint firstItem="tng-Lv-gIf" firstAttribute="trailing" secondItem="HA6-A6-LY0" secondAttribute="trailing" constant="20" id="fWA-7z-LrX"/>
+                            <constraint firstItem="HA6-A6-LY0" firstAttribute="bottom" secondItem="tng-Lv-gIf" secondAttribute="bottom" constant="-20" id="mio-vK-nz4"/>
+                            <constraint firstItem="vNn-dx-qmH" firstAttribute="top" secondItem="tng-Lv-gIf" secondAttribute="top" constant="16" id="t9K-ke-rVl"/>
+                            <constraint firstItem="HA6-A6-LY0" firstAttribute="leading" secondItem="tng-Lv-gIf" secondAttribute="leading" constant="20" id="ufK-8j-STD"/>
+                            <constraint firstItem="tng-Lv-gIf" firstAttribute="trailing" secondItem="vNn-dx-qmH" secondAttribute="trailing" constant="10" id="yrO-Od-Yda"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tng-Lv-gIf"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="nuE-uX-ACM" id="wOa-LX-ZxZ"/>
+                        <outlet property="doneButton" destination="HA6-A6-LY0" id="HaF-lF-Kqg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qz4-FY-sdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="-1187.2767857142856"/>
         </scene>
     </scenes>
     <resources>
