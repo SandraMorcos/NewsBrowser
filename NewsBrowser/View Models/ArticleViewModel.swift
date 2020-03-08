@@ -8,13 +8,14 @@
 
 import Foundation
 
-struct ArticleViewModel {
+class ArticleViewModel: Codable {
     let title: String
     var date: String?
     let imageURL: String
     let sourceName: String
     let articleURL: String
     let description: String
+    var isFavorite = false
     
     init(model: Article) {
         title = model.title ?? ""

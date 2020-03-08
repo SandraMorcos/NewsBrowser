@@ -12,10 +12,8 @@ class HeadlinesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    let cellNibName = "ArticleTableViewCell"
-    let cellReuseID = "articleTableviewCellID"
-    var dataSource: [Article] = []
-    var fetchedArticles: [Article] = []
+    var dataSource: [ArticleViewModel] = []
+    var fetchedArticles: [ArticleViewModel] = []
     var pageNumber = 1
     var selectedFilters = [SourceViewModel]()
     let dataLoader = DataLoader()
@@ -23,7 +21,9 @@ class HeadlinesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: cellNibName, bundle: Bundle.main), forCellReuseIdentifier: cellReuseID)
+        tableView.register(UINib(nibName: Constants.cellNibName,
+                                 bundle: Bundle.main),
+                           forCellReuseIdentifier: Constants.cellReuseID)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorColor = .darkGray
         fetchData()
@@ -35,13 +35,19 @@ class HeadlinesViewController: UIViewController {
                 let articles = response?.articles else {
                     return
             }
-            self.fetchedArticles.append(contentsOf: articles)
+            var viewModels = [ArticleViewModel]()
+            for article in articles {
+                let viewModel = ArticleViewModel(model: article)
+                viewModels.append(viewModel)
+            }
+            self.fetchedArticles.append(contentsOf: viewModels)
             self.dataSource = self.fetchedArticles
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
+
 
     @IBAction func showFilters(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: Storyboards.main.rawValue, bundle: Bundle.main)
@@ -61,11 +67,19 @@ extension HeadlinesViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseID) as? ArticleTableViewCell else {
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: Constants.cellReuseID)
+            as? ArticleTableViewCell else {
             return UITableViewCell()
         }
-        let viewModel = ArticleViewModel(model: dataSource[indexPath.row])
-        cell.setup(with: viewModel)
+        cell.setup(with: dataSource[indexPath.row])
+        cell.changeFavoriteState = { (viewModel) in
+            if viewModel.isFavorite {
+                UserDefaults.standard.bookmarkArticle(article: viewModel)
+            } else {
+                UserDefaults.standard.removeArticle(article: viewModel)
+            }
+        }
         return cell
     }
     
@@ -92,7 +106,10 @@ extension HeadlinesViewController: UISearchBarDelegate {
         dataLoader.request(.search(matching: text, sources: sources)) { [weak self] (response, error) in
             guard let self = self,
                 let articles = response?.articles else { return }
-            self.dataSource = articles
+            self.dataSource = []
+            for article in articles {
+                self.dataSource.append(ArticleViewModel(model: article))
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.searchBar.resignFirstResponder()
