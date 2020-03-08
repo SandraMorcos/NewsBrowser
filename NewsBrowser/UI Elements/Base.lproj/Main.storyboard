@@ -112,7 +112,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eIf-nQ-V9J"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="unfavorite" id="iFf-uy-nR7"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="iFf-uy-nR7">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="10"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="f2s-cP-C8H" id="gDf-Ow-Ph5"/>
                     </connections>
@@ -235,8 +237,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="favorite" width="50" height="50"/>
         <image name="filter" width="50" height="50"/>
         <image name="headlines" width="30" height="30"/>
-        <image name="unfavorite" width="50" height="50"/>
     </resources>
 </document>
