@@ -14,7 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        let rootViewController: UIViewController?
+        if Constants.favoriteCountry != nil {
+            let storyboard = UIStoryboard(name: Storyboards.main.rawValue, bundle: Bundle.main)
+            rootViewController = storyboard.instantiateInitialViewController()
+        } else {
+            let storyboard = UIStoryboard(name: Storyboards.onboarding.rawValue, bundle: Bundle.main)
+            let onboardingVC = storyboard.instantiateViewController(withIdentifier: ViewControllers.onboarding.rawValue)
+            rootViewController = UINavigationController(rootViewController: onboardingVC)
+        }
+        window?.rootViewController = rootViewController
         return true
     }
 

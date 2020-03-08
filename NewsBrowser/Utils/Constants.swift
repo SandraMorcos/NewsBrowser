@@ -13,7 +13,7 @@ struct Constants {
     static let displayDateFormat = "MMM d, yyyy"
     static let apiDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     static var favoriteCountry: String? {
-        return "us" //UserDefaults.standard.favoriteCountry
+        return UserDefaults.standard.favoriteCountry
     }
     static var favoriteSources: [String]? {
         return UserDefaults.standard.favoriteSources

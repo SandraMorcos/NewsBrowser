@@ -19,6 +19,9 @@
 		A57C582724153C1F006D0F47 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = A57C582524153C1E006D0F47 /* CountryCodes.json */; };
 		A57C582824153C1F006D0F47 /* ArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C582624153C1F006D0F47 /* ArticlesRequest.swift */; };
 		A57C582B24153C86006D0F47 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C582A24153C85006D0F47 /* ArticleViewModel.swift */; };
+		A57C582D24153FFB006D0F47 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57C582C24153FFA006D0F47 /* Onboarding.storyboard */; };
+		A57C582F241540A7006D0F47 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C582E241540A7006D0F47 /* OnboardingViewController.swift */; };
+		A57C5831241540D7006D0F47 /* CountriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C5830241540D7006D0F47 /* CountriesRepository.swift */; };
 		A5A9A03B2415338D00EBE6DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A9A03A2415338D00EBE6DE /* AppDelegate.swift */; };
 		A5A9A0422415338D00EBE6DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A9A0402415338D00EBE6DE /* Main.storyboard */; };
 		A5A9A0442415338E00EBE6DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A9A0432415338E00EBE6DE /* Assets.xcassets */; };
@@ -41,6 +44,9 @@
 		A57C582524153C1E006D0F47 /* CountryCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		A57C582624153C1F006D0F47 /* ArticlesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesRequest.swift; sourceTree = "<group>"; };
 		A57C582A24153C85006D0F47 /* ArticleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		A57C582C24153FFA006D0F47 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		A57C582E241540A7006D0F47 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A57C5830241540D7006D0F47 /* CountriesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesRepository.swift; sourceTree = "<group>"; };
 		A5A9A0372415338D00EBE6DE /* NewsBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A9A03A2415338D00EBE6DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5A9A0412415338D00EBE6DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		A57C580924153978006D0F47 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A57C582E241540A7006D0F47 /* OnboardingViewController.swift */,
 				A57C580E24153A15006D0F47 /* HeadlinesViewController.swift */,
 			);
 			path = ViewControllers;
@@ -91,6 +98,7 @@
 		A57C581924153AF7006D0F47 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A57C5830241540D7006D0F47 /* CountriesRepository.swift */,
 				A57C581724153AE7006D0F47 /* DataLoader.swift */,
 			);
 			path = Repositories;
@@ -99,6 +107,7 @@
 		A57C581A24153B1F006D0F47 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				A57C582C24153FFA006D0F47 /* Onboarding.storyboard */,
 				A57C581C24153B5B006D0F47 /* ArticleTableViewCell.swift */,
 				A57C581B24153B5B006D0F47 /* ArticleTableViewCell.xib */,
 				A5A9A0402415338D00EBE6DE /* Main.storyboard */,
@@ -232,6 +241,7 @@
 				A57C582724153C1F006D0F47 /* CountryCodes.json in Resources */,
 				A57C581D24153B5B006D0F47 /* ArticleTableViewCell.xib in Resources */,
 				A5A9A0472415338E00EBE6DE /* LaunchScreen.storyboard in Resources */,
+				A57C582D24153FFB006D0F47 /* Onboarding.storyboard in Resources */,
 				A5A9A0442415338E00EBE6DE /* Assets.xcassets in Resources */,
 				A5A9A0422415338D00EBE6DE /* Main.storyboard in Resources */,
 			);
@@ -293,8 +303,10 @@
 				A57C581224153A4F006D0F47 /* Response.swift in Sources */,
 				A57C581624153A89006D0F47 /* Source.swift in Sources */,
 				A57C582424153BB2006D0F47 /* Date+String.swift in Sources */,
+				A57C582F241540A7006D0F47 /* OnboardingViewController.swift in Sources */,
 				A57C582B24153C86006D0F47 /* ArticleViewModel.swift in Sources */,
 				A57C581E24153B5B006D0F47 /* ArticleTableViewCell.swift in Sources */,
+				A57C5831241540D7006D0F47 /* CountriesRepository.swift in Sources */,
 				A5A9A03B2415338D00EBE6DE /* AppDelegate.swift in Sources */,
 				A57C582324153BB2006D0F47 /* Constants.swift in Sources */,
 			);

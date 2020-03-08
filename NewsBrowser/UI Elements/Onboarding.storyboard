@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="HKb-RZ-yqX">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="sYE-yV-be3" customClass="OnboardingViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BoB-ia-TZP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-qq-f4i">
+                                <rect key="frame" x="20" y="165" width="374" height="603"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sYE-yV-be3" id="yqr-EL-Zed"/>
+                                    <outlet property="delegate" destination="sYE-yV-be3" id="V7v-7y-Tqg"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to You've Got News," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voh-Et-CQK">
+                                <rect key="frame" x="20" y="94" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose the country you'd like to follow:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liW-eJ-rzw">
+                                <rect key="frame" x="20" y="124.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRD-dK-0wV">
+                                <rect key="frame" x="20" y="788" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2rR-Gi-0Yf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="countrySelected:" destination="sYE-yV-be3" eventType="touchUpInside" id="8vP-pm-f96"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Voh-Et-CQK" firstAttribute="top" secondItem="1Fg-Aj-sHA" secondAttribute="top" constant="50" id="1CJ-lK-ggT"/>
+                            <constraint firstItem="liW-eJ-rzw" firstAttribute="top" secondItem="Voh-Et-CQK" secondAttribute="bottom" constant="10" id="2JM-i4-Jnh"/>
+                            <constraint firstItem="1Fg-Aj-sHA" firstAttribute="bottom" secondItem="VRD-dK-0wV" secondAttribute="bottom" constant="30" id="5Yf-V8-XoC"/>
+                            <constraint firstItem="liW-eJ-rzw" firstAttribute="trailing" secondItem="Voh-Et-CQK" secondAttribute="trailing" id="8Iu-uY-TvC"/>
+                            <constraint firstItem="1Fg-Aj-sHA" firstAttribute="trailing" secondItem="Voh-Et-CQK" secondAttribute="trailing" constant="20" id="CDj-FB-XTV"/>
+                            <constraint firstItem="qWV-qq-f4i" firstAttribute="top" secondItem="liW-eJ-rzw" secondAttribute="bottom" constant="20" id="GUe-1g-AIe"/>
+                            <constraint firstItem="1Fg-Aj-sHA" firstAttribute="trailing" secondItem="VRD-dK-0wV" secondAttribute="trailing" constant="20" id="V2Y-Le-flP"/>
+                            <constraint firstItem="liW-eJ-rzw" firstAttribute="leading" secondItem="Voh-Et-CQK" secondAttribute="leading" id="VC8-yV-acv"/>
+                            <constraint firstItem="VRD-dK-0wV" firstAttribute="top" secondItem="qWV-qq-f4i" secondAttribute="bottom" constant="20" id="bDr-fz-Qlq"/>
+                            <constraint firstItem="qWV-qq-f4i" firstAttribute="leading" secondItem="1Fg-Aj-sHA" secondAttribute="leading" constant="20" id="biH-RO-Qpi"/>
+                            <constraint firstItem="qWV-qq-f4i" firstAttribute="trailing" secondItem="1Fg-Aj-sHA" secondAttribute="trailing" constant="-20" id="uk1-r1-akF"/>
+                            <constraint firstItem="Voh-Et-CQK" firstAttribute="leading" secondItem="1Fg-Aj-sHA" secondAttribute="leading" constant="20" id="vPW-xZ-kPL"/>
+                            <constraint firstItem="VRD-dK-0wV" firstAttribute="leading" secondItem="1Fg-Aj-sHA" secondAttribute="leading" constant="20" id="xT7-xR-nlQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Fg-Aj-sHA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HIi-5r-JkZ"/>
+                    <connections>
+                        <outlet property="countriesPickerView" destination="qWV-qq-f4i" id="QeN-Rs-qVE"/>
+                        <outlet property="instructionsLabel" destination="liW-eJ-rzw" id="KK5-KM-h1x"/>
+                        <outlet property="nextButton" destination="VRD-dK-0wV" id="cfH-Pk-reU"/>
+                        <outlet property="welcomeLabel" destination="Voh-Et-CQK" id="lhe-lU-EAh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-LQ-To6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008.6956521739132" y="24.776785714285712"/>
+        </scene>
+        <!--Sources View Controller-->
+        <scene sceneID="LWq-de-cPg">
+            <objects>
+                <viewController storyboardIdentifier="SourcesViewController" id="z9i-Ob-5sV" customClass="SourcesViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fKS-D0-fbh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mHz-37-sCM">
+                                <rect key="frame" x="0.0" y="126.5" width="414" height="641.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sourceTableViewCellID" id="4Me-VP-d3q">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Me-VP-d3q" id="JfJ-jx-HPz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="z9i-Ob-5sV" id="Dsl-qB-wsx"/>
+                                    <outlet property="delegate" destination="z9i-Ob-5sV" id="kXi-H5-IJW"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose up to three news sources you'd like to follow:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foO-Nj-gPP">
+                                <rect key="frame" x="20" y="64" width="374" height="42.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5h-o4-nmI">
+                                <rect key="frame" x="20" y="788" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dpe-I6-ZZ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Browse Headlines">
+                                    <color key="titleColor" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectionCompleted:" destination="z9i-Ob-5sV" eventType="touchUpInside" id="7K4-2Z-aOY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="czS-xc-x1B" firstAttribute="bottom" secondItem="T5h-o4-nmI" secondAttribute="bottom" constant="30" id="3tr-y8-jS5"/>
+                            <constraint firstItem="czS-xc-x1B" firstAttribute="trailing" secondItem="mHz-37-sCM" secondAttribute="trailing" id="DEX-Lf-ndf"/>
+                            <constraint firstItem="foO-Nj-gPP" firstAttribute="top" secondItem="czS-xc-x1B" secondAttribute="top" constant="20" id="J5B-JB-jZs"/>
+                            <constraint firstItem="mHz-37-sCM" firstAttribute="leading" secondItem="czS-xc-x1B" secondAttribute="leading" id="P5y-9D-NkD"/>
+                            <constraint firstItem="czS-xc-x1B" firstAttribute="trailing" secondItem="T5h-o4-nmI" secondAttribute="trailing" constant="20" id="Sbw-JK-6jY"/>
+                            <constraint firstItem="T5h-o4-nmI" firstAttribute="top" secondItem="mHz-37-sCM" secondAttribute="bottom" constant="20" id="YDU-kC-DBX"/>
+                            <constraint firstItem="czS-xc-x1B" firstAttribute="trailing" secondItem="foO-Nj-gPP" secondAttribute="trailing" constant="20" id="d99-tN-kDG"/>
+                            <constraint firstItem="mHz-37-sCM" firstAttribute="top" secondItem="foO-Nj-gPP" secondAttribute="bottom" constant="20" id="dfH-s9-7Zh"/>
+                            <constraint firstItem="foO-Nj-gPP" firstAttribute="leading" secondItem="czS-xc-x1B" secondAttribute="leading" constant="20" id="et3-3q-sPd"/>
+                            <constraint firstItem="T5h-o4-nmI" firstAttribute="leading" secondItem="czS-xc-x1B" secondAttribute="leading" constant="20" id="iSL-zV-YWD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="czS-xc-x1B"/>
+                    </view>
+                    <connections>
+                        <outlet property="browseHeadlinesButton" destination="T5h-o4-nmI" id="J0g-Wl-iuM"/>
+                        <outlet property="instructionsLabel" destination="foO-Nj-gPP" id="jcr-lx-yga"/>
+                        <outlet property="tableView" destination="mHz-37-sCM" id="kAK-FS-CLZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LjA-sj-gNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2813.04347826087" y="24.776785714285712"/>
+        </scene>
+    </scenes>
+</document>
